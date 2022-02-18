@@ -1,0 +1,38 @@
+{% extends 'register.html' %}
+{% block title %}
+    <title>Login page</title>
+{% endblock title %}
+        
+
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tag}} alert-dismissible fade show" role="alert">
+    <strong>Message : </strong>{{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <span aria-hidden="true">&times;</span>
+</div>
+{% endfor %}
+
+    <!--               BOOTSTRAP                 -->
+    <center class=my-3><h1>Leocoders Login form</h1></center>
+<form class='container my-4' method='POST' action='login'>
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="loginusername">Username</label>
+        <input type="text" class="form-control" id="loginusername" name = "loginusername" required>
+    </div>
+    <div class="form-group">
+        <label for="loginpassword">Password</label>
+        <input type="password" class="form-control" id="loginpassword" name = "loginpassword" required>
+        </div>
+    <div class="mt-2">
+    <button type="submit" class="btn btn-dark">
+        Log In
+    </button>
+    </div>
+</form>
+
+
+
+{% endblock body %}

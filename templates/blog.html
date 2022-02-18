@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <title>blog posts</title>
+ {% endblock title %}
+
+{% block body %}
+    
+<div class="container" my-4>
+    <h2 class="my-4">Welcome to Leocoders blogs</h2>
+    {% for post in allposts %}
+
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Article by {{post.author}}</strong>
+            <h3 class="mb-0">{{post.title}}</h3>
+            <hr>
+            <div class="mb-1 text-muted">{{post.timeStamp}}</div>
+            <p class="card-text mb-auto">{{post.content| truncatechars:500}}</p>
+            <div class="my-2">
+                <a href="blogPost{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+        </div>
+    </div class="col-auto d-none d-lg-block">
+
+    {% comment %} <div class="container my-3">
+        <div class="jumbotron">
+          <h1 class="display-4">{{ post.title }}</h1>
+          <p class="lead">This is my simple blog</p>
+          <hr class="my-4">
+          <p>{{ post.content | truncatechars:500}}</p>
+          <a href="blog{{post.slug}}" role="button" class="btn btn-primary">Continue reading<a/>
+          <h5 class="display-4"> Article By{{post.author}}</h5>
+          <h1 class="display-4">{{post.datetime}}</h1>
+          </hr>
+        </div>
+    </div> {% endcomment %}
+    {% endfor %}
+</div>
+
+{% endblock body %}

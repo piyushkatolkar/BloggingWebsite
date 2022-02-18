@@ -1,0 +1,17 @@
+{% extends 'blog.html' %}
+
+{% block title %}
+    <title>blog posts</title>
+ {% endblock title %}
+
+{% block body %}
+    {% csrf_token %}
+    <div class="container my-4">
+        <h2 class="blog-post-title">{{Post.title}}</h2>
+        <p class="blog-post-meta">{{Post.timeStamp}} by <a href="#">{{Post.author}}</a></p>
+
+        <p>{{Post.content}}</p>
+        <hr>
+    </div>
+
+{% endblock body %}
